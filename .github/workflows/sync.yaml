@@ -3,6 +3,9 @@ run-name: ${{ github.actor }} is running GitHub Actions
 on: [push]
 jobs:
   Sync-Docker-Image-Actions:
+    strategy:
+      matrix:
+        platform: [ linux/amd64, linux/arm64 ]
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -12,5 +15,5 @@ jobs:
           docker login -u "${{ secrets.DOCKER_USER }}" -p "${{ secrets.DOCKER_PWD }}" "${{ secrets.DOCKER_REGISTRY }}"
       - name: execute sync.sh
         run: |
-          bash "${{ github.workspace }}/sync.sh" "${{ github.workspace }}/images.txt" "${{ secrets.DOCKER_REGISTRY }}" "${{ secrets.DOCKER_NS }}"
+          bash "${{ github.workspace }}/sync.sh" "${{ github.workspace }}/images.txt" "${{ secrets.DOCKER_REGISTRY }}" "${{ secrets.DOCKER_NS }}" "${{ matrix.platform }}"
       - run: echo "This job's status is ${{ job.status }}"

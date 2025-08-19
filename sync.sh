@@ -3,9 +3,9 @@ set -eux
 
 
 # 检查参数数量是否正确
-if [ "$#" -ne 3 ]; then
-    echo "错误：脚本需要3个参数 images_file、docker_registry和docker_namespace"
-    echo "用法: $0 <images_file> <docker_registry> <docker_namespace>"
+if [ "$#" -ne 4 ]; then
+    echo "错误：脚本需要4个参数 images_file、docker_registry、docker_namespace、platform"
+    echo "用法: $0 <images_file> <docker_registry> <docker_namespace> <platform>"
     exit 1
 fi
 
@@ -13,6 +13,7 @@ fi
 IMAGES_FILE=$1
 TARGET_REGISTRY=$2
 TARGET_NAMESPACE=$3
+TARGET_PLATFORM=$4
 
 # 检查文件是否存在
 if [ ! -f "$IMAGES_FILE" ]; then
@@ -25,7 +26,7 @@ failed_images=""
 while IFS= read -r image; do
     # 拉取镜像
     set +e
-    docker pull "$image"
+    docker pull --platform="$TARGET_PLATFORM" "$image"
     pull_status=$?
     if [ $pull_status -ne 0 ]; then
         echo "Error: Failed to pull image $image, continuing..."
