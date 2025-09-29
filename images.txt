@@ -1,1 +1,1 @@
---platform linux/arm64 redis:6.2.11
+redis:6.2.11
