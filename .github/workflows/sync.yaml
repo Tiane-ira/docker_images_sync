@@ -5,7 +5,9 @@ jobs:
   Sync-Docker-Image-Actions:
     strategy:
       matrix:
-        platform: [ linux/amd64, linux/arm64 ]
+        platform:
+          - linux/amd64
+          - linux/arm64
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
