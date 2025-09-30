@@ -3,8 +3,8 @@ set -eux
 
 
 # 检查参数数量是否正确
-if [ "$#" -ne 3 ]; then
-    echo "错误：脚本需要3个参数 images_file、docker_registry和docker_namespace"
+if [ "$#" -ne 4 ]; then
+    echo "错误：脚本需要4个参数 images_file、docker_registry、docker_namespace、platform"
     echo "用法: $0 <images_file> <docker_registry> <docker_namespace>"
     exit 1
 fi
