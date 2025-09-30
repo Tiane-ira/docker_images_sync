@@ -5,7 +5,7 @@ set -eux
 # 检查参数数量是否正确
 if [ "$#" -ne 4 ]; then
     echo "错误：脚本需要4个参数 images_file、docker_registry、docker_namespace、platform"
-    echo "用法: $0 <images_file> <docker_registry> <docker_namespace>"
+    echo "用法: $0 <images_file> <docker_registry> <docker_namespace> <platform>"
     exit 1
 fi
 
