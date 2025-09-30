@@ -13,6 +13,7 @@ fi
 IMAGES_FILE=$1
 TARGET_REGISTRY=$2
 TARGET_NAMESPACE=$3
+TARGET_PLATFORM=$4
 
 # 检查文件是否存在
 if [ ! -f "$IMAGES_FILE" ]; then
@@ -25,7 +26,7 @@ failed_images=""
 while IFS= read -r image; do
     # 拉取镜像
     set +e
-    docker pull "$image"
+    docker pull --platform="$TARGET_PLATFORM" "$image"
     pull_status=$?
     if [ $pull_status -ne 0 ]; then
         echo "Error: Failed to pull image $image, continuing..."
