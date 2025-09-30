@@ -104,12 +104,12 @@ for tag in "$@"; do
     last_part=$(basename "$tag")
     full_tag="$REGISTRY_URL/$REGISTRY_NS/$last_part"
     success=0
-    
+
     for ((attempt=1; attempt<=MAX_RETRIES; attempt++)); do
         if [ $success -eq 0 ]; then
             echo "[Attempt $attempt/$MAX_RETRIES] Pulling $full_tag"
             docker pull "$full_tag"
-            
+
             if [ $? -eq 0 ]; then
                 success=1
                 echo "[pull images] Successfully pulled $full_tag, now delete origin image $full_tag:"
@@ -122,7 +122,7 @@ for tag in "$@"; do
             fi
         fi
     done
-    
+
     if [ $success -eq 0 ]; then
         echo "[pull images] Failed to pull $full_tag after $MAX_RETRIES attempts"
         FAILED_TAGS+=("$tag")
