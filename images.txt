@@ -1,8 +1,4 @@
-bitnamilegacy/redis:8.0
-bitnamilegacy/elasticsearch:8.18.0
-minio/minio:RELEASE.2025-06-13T11-33-47Z-cpuv1
-bitnamilegacy/etcd:3.5
-milvusdb/milvus:v2.5.10
-nsqio/nsq:v1.2.1
-nsqio/nsq:v1.2.1
-nsqio/nsq:v1.2.1
+golang:1.24-alpine
+node:22-alpine
+nginx:1.25-alpine
+alpine:3.22.0
