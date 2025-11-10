@@ -1,2 +1,1 @@
-cozedev/coze-studio-server
-cozedev/coze-studio-web
+kindest/node:v1.26.3
