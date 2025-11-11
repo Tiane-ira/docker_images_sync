@@ -1,1 +1,1 @@
-kindest/node:v1.26.3
+nacos/nacos-server:latest
