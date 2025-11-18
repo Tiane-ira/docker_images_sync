@@ -6,8 +6,8 @@ jobs:
     strategy:
       matrix:
         platform:
-#          - linux/amd64
-          - linux/arm64
+          - linux/amd64
+#          - linux/arm64
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
