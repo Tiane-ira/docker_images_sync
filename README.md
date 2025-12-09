@@ -67,6 +67,8 @@
 
 ![image](images/077GE2yiN_IRLeapyG-PvWwf2xKNMgeiVPtFWVIW-GA.png)
 
+这里创建两个命名空间，一个用于x86架构，一个用于arm架构，方便后续脚本配置
+
 记住该命名空间名称，后续配置会用到。
 
 4. **记录登录凭证**
@@ -98,7 +100,8 @@ fork开源仓库[https://github.com/you8023/docker\_images\_sync](https://github
 * `DOCKER_USER`：阿里云账户
 * `DOCKER_PWD`：2.1中第2步设置的阿里云镜像仓库密码
 * `DOCKER_REGISTRY`：2.1中第4步中记住的登录凭证页面中的仓库地址
-* `DOCKER_NS`：2.1中第3步创建的命名空间名称
+* `DOCKER_NS`：2.1中第3步创建的x86架构的命名空间名称
+* `DOCKER_NS_ARM`：2.1中第3步创建的arm64架构的命名空间名称
 
 添加后应能看到：
 
@@ -112,9 +115,9 @@ fork开源仓库[https://github.com/you8023/docker\_images\_sync](https://github
 1. 复制本地仓库中的`cmd/conf.yaml.default`文件并命名为`cmd/conf.yaml`
 2. 编辑`cmd/conf.yaml` ，配置说明如下：
 
-```bash
+```yaml
 registry: 阿里云个人镜像仓库地址，形如：crpi-xxx.cn-xxx.personal.cr.aliyuncs.com
-namespace: 阿里云个人镜像仓库命名空间名称
+namespace: 阿里云个人镜像仓库命名空间名称(根据自己的cpu架构选择对应的命名空间)
 images_dir: git仓库路径，例如："E:\Git\docker_images_sync"
 max_retries: 拉取镜像重试次数，默认为60
 retry_delay: 拉取镜像尝试间隔（秒），默认为1
