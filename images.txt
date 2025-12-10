@@ -1,1 +1,1 @@
-nacos/nacos-server:v3.1.1
+yuxiaoyao520/jrebel-license-active-server:latest
