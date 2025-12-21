@@ -1,1 +1,1 @@
-oceanbase/oceanbase-ce
+cloudflare/cloudflared:latest
