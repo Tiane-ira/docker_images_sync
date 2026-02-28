@@ -49,8 +49,8 @@ while IFS= read -r line || [ -n "$line" ]; do
 done < "$CONFIG_FILE"
 
 # Set defaults
-MAX_RETRIES=${MAX_RETRIES:-60}
-RETRY_DELAY=${RETRY_DELAY:-1}
+MAX_RETRIES=${MAX_RETRIES:-120}
+RETRY_DELAY=${RETRY_DELAY:-5}
 FIRST_DELAY=${FIRST_DELAY:-20}
 
 # Check required configurations
